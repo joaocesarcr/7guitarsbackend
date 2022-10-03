@@ -5,7 +5,6 @@ exports.login = async (req, res) => {
 }
 exports.isAdmin = async (req, res,next) => {
     console.log(req.session)
-    next()
     if(req.session.admin){
         next()
     }
@@ -15,7 +14,6 @@ exports.isAdmin = async (req, res,next) => {
 }
 exports.isLoggedIn = async (req, res,next) => {
     console.log(req.session)
-    next();
     if(req.session.loggedIn){
         next()
     }
