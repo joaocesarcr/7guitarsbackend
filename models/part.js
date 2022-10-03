@@ -61,14 +61,14 @@ module.exports = class Part {
                 Parts:[]
             }
             parts.forEach(part => {
-                const part={
-                    id:part._id,
-                    text:part.name,
-                    price:part.price,
-                    quantity:part.quantity,
-                    description:part.description
+                const currentpart={
+                    id:currentpart._id,
+                    text:currentpart.name,
+                    price:currentpart.price,
+                    quantity:currentpart.quantity,
+                    description:currentpart.description
                 }
-                body.Parts.push(part)
+                body.Parts.push(currentpart)
             });
             res.json(body)
         })
