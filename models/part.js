@@ -35,7 +35,6 @@ module.exports = class Part {
     }
     //espera name e section para deletar objeto
     static async deletePart(req, res) {
-        console.log("received delete request")
         await part.deleteOne({ section: req.body.section ,name:req.body.name}).then((part) => {
             res.status(204)
         }
@@ -46,6 +45,33 @@ module.exports = class Part {
         console.log(req.body)
         await part.updateOne({section:req.body.section,name:req.body.name},{$set: {quantity: req.body.quantity}})
         res.status(200)
+    }
+    static async getPricebyidList(id){
+        await part.find(id).then((parts)=>{
+            price=0;
+            parts.forEach(part => {
+                price+=part.price
+            });
+            return part.price;
+        })
+    }
+    static async findPartsbyidList(req,res){
+        await part.find(req.body.list).then((parts)=>{
+            const body={
+                Parts:[]
+            }
+            parts.forEach(part => {
+                const part={
+                    id:part._id,
+                    text:part.name,
+                    price:part.price,
+                    quantity:part.quantity,
+                    description:part.description
+                }
+                body.Parts.push(part)
+            });
+            res.json(body)
+        })
     }
 
 }
