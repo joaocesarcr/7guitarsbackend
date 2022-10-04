@@ -14,7 +14,7 @@ mongoose
   .then(() => {
     const app = express();
     const corsOptions = {
-      origin: 'https://sguitars.herokuapp.com',
+      origin: 'http://sguitars.herokuapp.com',
       optionsSuccessStatus: 200,
       credentials: true,
     };
