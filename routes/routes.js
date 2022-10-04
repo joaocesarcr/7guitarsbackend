@@ -41,12 +41,26 @@ router.get('/getPartsOfType', controllerPart.getPartofType);
 //req.body.price,
 //req.body.description
 router.post('/registerPart', controllerLogin.isAdmin,controllerPart.registerPart);
+
+
+//atualiza quantidade do estoque
+//req.body.section,
+//req.body.name
+//req.body.quantity
 router.put('/updateQuant', controllerLogin.isAdmin,controllerPart.updateQuantity);
+
+//deleta parte
+//req.body.id
 router.delete('/deletePart', controllerLogin.isAdmin,controllerPart.deletePart);
+
+//retorna uma lista de partes
+//req.body.list==array de ids de parte
 router.get('/getPartsByIDList',controllerPart.findPartsbyidList);
+
 //section route, devolopment only
 router.post('/registerSection', controllerSection.registerSection);
 router.get('/getAllSections', controllerSection.getSections);
+
 //guitar routes
 router.get("/getGuitars",controllerGuitar.getAllGuitars);
 router.post("/addGuitar",controllerGuitar.registerGuitar);
