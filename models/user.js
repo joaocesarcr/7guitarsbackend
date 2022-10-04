@@ -12,6 +12,11 @@ module.exports = class User {
             req.session.admin = findUser.isAdmin;
             req.session.email = findUser.email;
             req.session.adress = findUser.adress;
+            req.session.save(() => {
+              console.log(req.session);
+              res.send(check)
+            }
+            )
           }
           res.send(check);
         });
