@@ -26,9 +26,11 @@ mongoose
       session({
         secret: 'br.+ma4:FqFvmK9?6/6}8:%?]Cq)[<XYy}2~n/^MWE!+D<;Z',
         resave: false,
-        saveUninitialized: true,
-        secure: false,
-        httpOnly: true
+        saveUninitialized: false,
+        cookie: { 
+          httpOnly: false,
+          maxAge: null
+        }
       })
     );
     app.use(routes);
