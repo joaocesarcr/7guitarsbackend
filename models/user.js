@@ -3,6 +3,8 @@ const bcrypt = require('bcryptjs');
 
 module.exports = class User {
   static async login(req, res) {
+    console.log("1")
+    console.log(req.session);
     await user.findOne({ email: req.body.email }).then((findUser) => {
       if (findUser) {
         bcrypt.compare(req.body.password, findUser.hash).then((check) => {
@@ -13,6 +15,7 @@ module.exports = class User {
             req.session.email = findUser.email;
             req.session.adress = findUser.adress;
             req.session.save(() => {
+              console.log("2")
               console.log(req.session);
               res.send(check)
             }
