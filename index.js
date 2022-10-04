@@ -25,8 +25,15 @@ mongoose
     app.use(
       session({
         secret: 'br.+ma4:FqFvmK9?6/6}8:%?]Cq)[<XYy}2~n/^MWE!+D<;Z',
-        optionsSuccessStatus: 200,
-        credentials:true
+        resave: false,
+        credentials:true,
+        saveUninitialized: false,
+        cookie: { 
+          httpOnly: false,
+          maxAge: null,
+          secure:false
+        }
+
       })
     );
     app.use(routes);
