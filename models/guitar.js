@@ -5,14 +5,14 @@ module.exports = class Guitar {
         idArray = [req.body.body, req.body.neck, req.body.strings, req.body.headstock, req.body.knobs, req.body.pickups]
         await part.getPricebyidList(idArray).then(async (price) => {
             const newguitar = new guitar({
-                name:req.body.name,
+                name:req.session.name,
                 body: idArray[0],
                 neck: idArray[1],
                 strings: idArray[2],
                 headstock: idArray[3],
                 knobs: idArray[4],
                 pickups: idArray[5],
-                creator: req.body.email,
+                creator: req.session.email,
                 price: price
             })
             await newguitar.save()
