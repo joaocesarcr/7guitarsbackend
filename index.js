@@ -28,7 +28,7 @@ mongoose
         resave: false,
         saveUninitialized: true,
         secure: false,
-        httpOnly: false
+        httpOnly: true
       })
     );
     app.use(routes);
