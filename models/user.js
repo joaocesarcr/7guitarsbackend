@@ -17,8 +17,10 @@ module.exports = class User {
               res.send(check)
             }
             )
+          }else{
+            res.send(check);
           }
-          res.send(check);
+          
         });
       } else {
         res.send(false);
