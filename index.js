@@ -29,7 +29,8 @@ mongoose
         saveUninitialized: false,
         cookie: { 
           httpOnly: false,
-          maxAge: null
+          maxAge: null,
+          secure:false
         }
       })
     );
